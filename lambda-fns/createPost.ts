@@ -1,13 +1,12 @@
 const gremlin = require('gremlin')
 import Post from './Post'
 
-const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection;
-const Graph = gremlin.structure.Graph;
-
-const url = process.env.WRITER
+const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection
+const Graph = gremlin.structure.Graph
+const uri = process.env.WRITER
 
 async function createPost(post: Post) {
-    let dc = new DriverRemoteConnection(`wss://${url}/gremlin`, {})
+    let dc = new DriverRemoteConnection(`wss://${uri}/gremlin`, {})
     const graph = new Graph()
     const g = graph.traversal().withRemote(dc)
 
@@ -15,4 +14,4 @@ async function createPost(post: Post) {
     dc.close()
     return post
 }
-export default createPost;
+export default createPost

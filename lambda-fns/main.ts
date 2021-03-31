@@ -7,8 +7,7 @@ type AppSyncEvent = {
     fieldName: string
   },
   arguments: {
-    post: Post,
-    query: String
+    post: Post
   }
 }
 

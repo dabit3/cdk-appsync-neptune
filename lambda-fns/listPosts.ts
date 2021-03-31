@@ -1,11 +1,11 @@
-const gremlin = require('gremlin');
-const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection;
-const Graph = gremlin.structure.Graph;
+const gremlin = require('gremlin')
 
-const url = process.env.READER
+const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection
+const Graph = gremlin.structure.Graph
+const uri = process.env.READER
 
 const listPosts = async () => {
-    let dc = new DriverRemoteConnection(`wss://${url}/gremlin`, {})
+    let dc = new DriverRemoteConnection(`wss://${uri}/gremlin`, {})
     const graph = new Graph()
     const g = graph.traversal().withRemote(dc)
     try {
@@ -22,7 +22,7 @@ const listPosts = async () => {
         posts.push(post)
       }
                 
-      dc.close();
+      dc.close()
       return posts
     } catch (err) {
         console.log('ERROR', err)
