@@ -55,9 +55,8 @@ query listPosts {
 
 mutation createPost {
   createPost(post: {
-    id: "THIS ROCKS!!"
-    content:"Yo !!!!!!"
-    title: "TESTINGQ!!!!"
+    content:"Hello world"
+    title: "My first pos!!"
   }) {
     id
     title
